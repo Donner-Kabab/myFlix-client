@@ -1,4 +1,4 @@
-import { MovieCard } from "../movie-card/movie-card";
+import { MovieCard } from "../movie-card/movie-card.jsx";
 
 export const MovieView = ({ movie }) => {
   return (
