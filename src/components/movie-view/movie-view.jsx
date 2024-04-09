@@ -1,6 +1,6 @@
 import { MovieCard } from "../movie-card/movie-card.jsx";
 
-export const MovieView = ({ movie }) => {
+export const MovieView = ({ movie, onBackClick }) => {
   return (
     <div>
       <div>
@@ -26,7 +26,7 @@ export const MovieView = ({ movie }) => {
         <span>Image: </span>
         <span>{movie.image}</span>
       </div>
-      <button>Back</button>
+      <button onClick={onBackClick}>Back</button>
     </div>
   );
 };
