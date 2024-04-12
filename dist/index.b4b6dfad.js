@@ -27182,52 +27182,31 @@ var _movieViewJsx = require("../movie-view/movie-view.jsx");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
-    const [movies, setMovies] = (0, _react.useState)([
-        {
-            id: 1,
-            title: "Eloquent JavaScript",
-            image: "https://image.jpg",
-            director: "Kevin Bacon"
-        },
-        {
-            id: 2,
-            title: "Mastering JavaScript Functional Programming",
-            image: "https://image.jpg",
-            director: "Kevin Bacon"
-        },
-        {
-            id: 3,
-            title: "JavaScript: The Good Parts",
-            image: "https://image.jpg",
-            director: "Kevin Bacon"
-        },
-        {
-            id: 4,
-            title: "JavaScript: The Definitive Guide",
-            image: "https://image.jpg",
-            director: "Kevin Bacon"
-        },
-        {
-            id: 5,
-            title: "The Road to React",
-            image: "https://image.jpg",
-            director: "Kevin Bacon"
-        }
-    ]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    const [movies, setMovies] = (0, _react.useState)([]);
+    (0, _react.useEffect)(()=>{
+        fetch("https://movies-api-qewk.onrender.com/movies", {
+            headers: {
+                Authorization: `Bearer `
+            }
+        }).then((res)=>res.json()).then((res)=>{
+            console.log(res);
+            setMovies(res);
+        }).catch((err)=>console.log(err));
+    }, []);
     if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieViewJsx.MovieView), {
         movie: selectedMovie,
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 43,
+        lineNumber: 24,
         columnNumber: 7
     }, undefined);
     if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: "The list is empty!"
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 51,
+        lineNumber: 32,
         columnNumber: 12
     }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27238,16 +27217,16 @@ const MainView = ()=>{
                 }
             }, movie.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 57,
+                lineNumber: 38,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 55,
+        lineNumber: 36,
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "NxCmcsqJcMmFfAMgTz6npFA2z90=");
+_s(MainView, "gZKazS9F3WzmdZHbA0prck3jems=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
