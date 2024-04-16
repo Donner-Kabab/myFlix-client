@@ -11,7 +11,7 @@ export const MainView = () => {
         Authorization: `Bearer `,
       },
     })
-      .then((res) => res.json())
+      .then((res) => res.json()) 
       .then((res) => {
         console.log(res);
         setMovies(res);
