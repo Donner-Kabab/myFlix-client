@@ -1,18 +1,29 @@
 import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card.jsx";
 import { MovieView } from "../movie-view/movie-view.jsx";
-import { LoginView } from "../../login-view/login-view.jsx";
+import { LoginView } from "../login-view/login-view.jsx";
+import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedToken = localStorage.getItem("token");
+  const [user, setUser] = useState(storedUser? storedUser : null);
+  const [token, setToken] = useState(storedToken? storedToken : null);
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [movies, setMovies] = useState(null);
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
 
   useEffect(() => {
-    fetch("https://movies-api-qewk.onrender.com/movies")
+    if (!token) return;
+  }
+    fetch("https://movies-api-qewk.onrender.com/movies", {
+      headers: { Authorization: "Bearer ${token}" },
+    }))
       .then((response) => response.json())
-      .then((data) => {
+      .then((movies) => {
+        setMovies(movies);
+      }); 
+  }, [token];
+        console.log(data);
         if (data && data.docs && Array.isArray(data.docs)) {
           const moviesFromApi = data.docs.map((doc) => {
             return {
@@ -25,12 +36,10 @@ export const MainView = () => {
         } else {
           console.error("Invalid data structure received from API");
         }
-      })
       .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
+        console.error("Error fetching data:", error); 
+      }
+    
   if (!user) {
     return (
       <LoginView
@@ -39,8 +48,11 @@ export const MainView = () => {
           setToken(token);
         }}
       />
+      )
+      or 
+      <SignupView />
     );
-  }
+  
 
   if (selectedMovie) {
     return (
@@ -69,11 +81,12 @@ export const MainView = () => {
       <button
         onClick={() => {
           setUser(null);
-          localStorage.clear();
+          setToken(null);
+          localStorage.clear(); 
         }}
       >
         Logout
       </button>
     </div>
   );
-};
+}
