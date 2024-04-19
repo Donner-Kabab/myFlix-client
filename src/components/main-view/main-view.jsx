@@ -14,45 +14,42 @@ export const MainView = () => {
 
   useEffect(() => {
     if (!token) return;
-  }
+
     fetch("https://movies-api-qewk.onrender.com/movies", {
-      headers: { Authorization: "Bearer ${token}" },
-    }))
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => response.json())
-      .then((movies) => {
-        setMovies(movies);
-      }); 
-  }, [token];
-        console.log(data);
-        if (data && data.docs && Array.isArray(data.docs)) {
-          const moviesFromApi = data.docs.map((doc) => {
-            return {
-              id: doc.key,
-              title: doc.title,
-              director: doc.director_name?.[0],
-            };
-          });
-          setMovies(moviesFromApi);
-        } else {
-          console.error("Invalid data structure received from API");
-        }
-      .catch((error) => {
-        console.error("Error fetching data:", error); 
-      }
-    
+      .then((data) => {
+        const moviesFromApi = data.map((movie) => {
+          return {
+            id: movie._id,
+            Title: movie.Title,
+            Description: movie.Description,
+            ImagePath: movie.ImagePath,
+            Director: movie.Director,
+            Genre: movie.Genre,
+            Actors: movie.Actors,
+            Featured: movie.Featured,
+          };
+        });
+        setMovies(moviesFromApi);
+      });
+  }, [token]);
+
   if (!user) {
     return (
-      <LoginView
-        onLoggedIn={(user, token) => {
-          setUser(user);
-          setToken(token);
-        }}
-      />
-      )
-      or 
-      <SignupView />
+      <>
+        <LoginView
+          onLoggedIn={(user, token) => {
+            setUser(user);
+            setToken(token);
+          }}
+        />
+        or
+        <SignupView />
+      </>
     );
-  
+  }
 
   if (selectedMovie) {
     return (
@@ -82,7 +79,7 @@ export const MainView = () => {
         onClick={() => {
           setUser(null);
           setToken(null);
-          localStorage.clear(); 
+          localStorage.clear();
         }}
       >
         Logout
