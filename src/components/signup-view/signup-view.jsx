@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Form from "react-bootstrap/Form";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
