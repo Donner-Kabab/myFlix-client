@@ -6,7 +6,7 @@ import { MainView } from "./components/main-view/main-view";
 
 const MyFlixApplication = () => {
   return (
-    <Container style={{border: "1px solid red"}}>
+    <Container style={{ border: "1px solid red" }}>
       <MainView />
     </Container>
   );

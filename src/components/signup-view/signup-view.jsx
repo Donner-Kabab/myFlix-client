@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export const SignupView = () => {
+export const SignupView = ({ onShowLoginForm }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ export const SignupView = () => {
         alert("Signup successful");
         window.location.reload();
       } else {
-        alert("Signup failed");
+        alert("Signup failed: ${data.error.message}");
       }
     });
   };
