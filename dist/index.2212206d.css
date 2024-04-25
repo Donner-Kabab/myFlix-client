@@ -13335,4 +13335,9 @@ textarea.form-control-lg {
 .my-flix {
   color: #4682b4;
 }
+
+.card-img-top {
+  object-fit: cover;
+  max-height: 165px;
+}
 /*# sourceMappingURL=index.2212206d.css.map */
