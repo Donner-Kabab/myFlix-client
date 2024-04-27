@@ -8,11 +8,11 @@ import { Row, Col, Button } from "react-bootstrap";
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  sonct[(showSignupForm, setShowSignupForm)] = useState(false);
+  const [showSignupForm, setShowSignupForm] = useState(false);
 
   useEffect(() => {
     if (!token) {
@@ -20,10 +20,10 @@ export const MainView = () => {
     }
 
     fetch("https://movies-api-qewk.onrender.com/movies", {
-      headers: { Authorization: "Bearer ${token}" },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => response.json())
-      .then(({ data }) => {
+      .then((data) => {
         const moviesFromApi = data.map((movie) => {
           return {
             id: movie._id,
@@ -69,13 +69,6 @@ export const MainView = () => {
               onBackClick={() => setSelectedMovie(null)}
             />
           </Col>
-          <SimilarMovies
-            selectedMovie={selectedMovie}
-            movies={movies}
-            onSimilarMovieClick={(newSelectedMovie) => {
-              setSelectedMovie(newSelectedMovie);
-            }}
-          />
         </Row>
       ) : movies.length === 0 ? (
         <Row className="justify-content-md-center">
@@ -93,7 +86,7 @@ export const MainView = () => {
               />
             </Col>
           ))}
-          <button
+          <Button
             onClick={() => {
               setUser(null);
               setToken(null);
@@ -101,7 +94,7 @@ export const MainView = () => {
             }}
           >
             Logout
-          </button>
+          </Button>
         </Row>
       )}
     </>
