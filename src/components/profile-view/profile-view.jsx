@@ -2,6 +2,8 @@ import React from "react";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { MainView } from "../main-view/main-view";
 import { MovieCard } from "../movie-card/movie-card";
+import { UpdateUser } from "/update-user";
+import { FavoriteMovies } from "/favorite-movies";
 
 import { Row, Col, Button } from "react-bootstrap";
 
@@ -15,8 +17,31 @@ export const ProfileView = () => {
 
   const [favMovies, setFavMovies] = useState([]);
 
-  useEffect(() => {
-    //get user info
-    //update state using setUser and setFavoriteMovies
-  }, []);
+  const data = {
+    Username: username,
+    Password: password,
+    Email: email,
+    Birthday: birthday,
+  };
+
+  //
+  fetch("https://movies-api-qewk.onrender.com/users", {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    if (response.ok) {
+      alert("Updtate Completed");
+      window.location.reload();
+    } else {
+      alert("Change failed: ${data.error.message}");
+    }
+  });
 };
+
+useEffect(() => {
+  //get user info
+  //update state using setUser and setFavoriteMovies
+}, []);

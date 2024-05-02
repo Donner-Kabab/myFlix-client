@@ -48999,6 +48999,8 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _navigationBar = require("../navigation-bar/navigation-bar");
 var _mainView = require("../main-view/main-view");
 var _movieCard = require("../movie-card/movie-card");
+var _updateUser = require("./update-user");
+var _favoriteMovies = require("./favorite-movies");
 var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 const ProfileView = ()=>{
@@ -49009,17 +49011,88 @@ const ProfileView = ()=>{
     const [birthdate, setBirthdate] = useState(user.Birthdate);
     const [password, setPassword] = useState("");
     const [favMovies, setFavMovies] = useState([]);
-    useEffect(()=>{
-    //get user info
-    //update state using setUser and setFavoriteMovies
-    }, []);
+    const data = {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
+    };
+    //
+    fetch("https://movies-api-qewk.onrender.com/users", {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then((response)=>{
+        if (response.ok) {
+            alert("Updtate Completed");
+            window.location.reload();
+        } else alert("Change failed: ${data.error.message}");
+    });
 };
-_s(ProfileView, "w3dy+sp8yxN7IFg3TxS18HGxjt0=");
+_s(ProfileView, "7m7b2lcRHYbrLzvHUkWnzuthcQ0=");
 _c = ProfileView;
+useEffect(()=>{
+//get user info
+//update state using setUser and setFavoriteMovies
+}, []);
 var _c;
 $RefreshReg$(_c, "ProfileView");
 
   $parcel$ReactRefreshHelpers$3c12.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","../navigation-bar/navigation-bar":"bsPVM","../main-view/main-view":"4gflv","../movie-card/movie-card":"bwuIu","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6","./update-user":"2SBwg","./favorite-movies":"dTTQH"}],"2SBwg":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$95d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$95d1.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UpdateUser", ()=>UpdateUser);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _navigationBar = require("../navigation-bar/navigation-bar");
+var _mainView = require("../main-view/main-view");
+var _movieCard = require("../movie-card/movie-card");
+var _reactBootstrap = require("react-bootstrap");
+const UpdateUser = ()=>{};
+_c = UpdateUser;
+var _c;
+$RefreshReg$(_c, "UpdateUser");
+
+  $parcel$ReactRefreshHelpers$95d1.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","../navigation-bar/navigation-bar":"bsPVM","../main-view/main-view":"4gflv","../movie-card/movie-card":"bwuIu","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6"}],"dTTQH":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8767.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _navigationBar = require("../navigation-bar/navigation-bar");
+var _mainView = require("../main-view/main-view");
+var _movieCard = require("../movie-card/movie-card");
+var _reactBootstrap = require("react-bootstrap");
+const FavoriteMovies = ()=>{};
+_c = FavoriteMovies;
+var _c;
+$RefreshReg$(_c, "FavoriteMovies");
+
+  $parcel$ReactRefreshHelpers$8767.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
