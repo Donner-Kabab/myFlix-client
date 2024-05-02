@@ -1,11 +1,12 @@
+import React from "react";
 import { MovieCard } from "../movie-card/movie-card.jsx";
 import { Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-export const MovieView = ({ movies}) => {
+export const MovieView = ({ movies }) => {
   const { movieId } = useParams();
-  const movie = movies.find((b) => b.id ==movieId);
+  const movie = movies.find((b) => b.id == movieId);
 
   return (
     <div>
@@ -28,9 +29,7 @@ export const MovieView = ({ movies}) => {
         <span>Genre: </span>
         <span>{movie.Genre.Name}</span>
       </div>
-      <Button className="mt-2" variant="primary" onClick={onBackClick}>
-        Back
-      </Button>
+      <Button className="back-button">Back</Button>
     </div>
   );
 };
