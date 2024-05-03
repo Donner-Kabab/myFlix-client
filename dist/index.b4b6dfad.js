@@ -49033,10 +49033,6 @@ const ProfileView = ()=>{
 };
 _s(ProfileView, "7m7b2lcRHYbrLzvHUkWnzuthcQ0=");
 _c = ProfileView;
-useEffect(()=>{
-//get user info
-//update state using setUser and setFavoriteMovies
-}, []);
 var _c;
 $RefreshReg$(_c, "ProfileView");
 
@@ -49045,7 +49041,31 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","../navigation-bar/navigation-bar":"bsPVM","../main-view/main-view":"4gflv","../movie-card/movie-card":"bwuIu","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6","./update-user":"2SBwg","./favorite-movies":"dTTQH"}],"2SBwg":[function(require,module,exports) {
+},{"react":"21dqq","../navigation-bar/navigation-bar":"bsPVM","../main-view/main-view":"4gflv","../movie-card/movie-card":"bwuIu","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6","./favorite-movies":"dTTQH","./update-user":"2SBwg"}],"dTTQH":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8767.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _movieCard = require("../movie-card/movie-card");
+var _reactBootstrap = require("react-bootstrap");
+const FavoriteMovies = ()=>{};
+_c = FavoriteMovies;
+var _c;
+$RefreshReg$(_c, "FavoriteMovies");
+
+  $parcel$ReactRefreshHelpers$8767.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","../movie-card/movie-card":"bwuIu","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6"}],"2SBwg":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$95d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -49067,32 +49087,6 @@ var _c;
 $RefreshReg$(_c, "UpdateUser");
 
   $parcel$ReactRefreshHelpers$95d1.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react":"21dqq","../navigation-bar/navigation-bar":"bsPVM","../main-view/main-view":"4gflv","../movie-card/movie-card":"bwuIu","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6"}],"dTTQH":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8767.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _navigationBar = require("../navigation-bar/navigation-bar");
-var _mainView = require("../main-view/main-view");
-var _movieCard = require("../movie-card/movie-card");
-var _reactBootstrap = require("react-bootstrap");
-const FavoriteMovies = ()=>{};
-_c = FavoriteMovies;
-var _c;
-$RefreshReg$(_c, "FavoriteMovies");
-
-  $parcel$ReactRefreshHelpers$8767.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;

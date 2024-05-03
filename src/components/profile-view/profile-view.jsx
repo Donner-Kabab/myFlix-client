@@ -2,8 +2,8 @@ import React from "react";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { MainView } from "../main-view/main-view";
 import { MovieCard } from "../movie-card/movie-card";
-import { UpdateUser } from "/update-user";
-import { FavoriteMovies } from "/favorite-movies";
+import { UpdateUser } from "./update-user";
+import { FavoriteMovies } from "./favorite-movies";
 
 import { Row, Col, Button } from "react-bootstrap";
 
@@ -40,8 +40,3 @@ export const ProfileView = () => {
     }
   });
 };
-
-useEffect(() => {
-  //get user info
-  //update state using setUser and setFavoriteMovies
-}, []);
