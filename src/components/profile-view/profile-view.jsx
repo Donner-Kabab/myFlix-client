@@ -15,7 +15,7 @@ export const ProfileView = () => {
   const [birthdate, setBirthdate] = useState(user.Birthdate);
   const [password, setPassword] = useState("");
 
-  const [favMovies, setFavMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const data = {
     Username: username,
