@@ -29,7 +29,9 @@ export const MovieView = ({ movies }) => {
         <span>Genre: </span>
         <span>{movie.Genre.Name}</span>
       </div>
-      <Button className="back-button">Back</Button>
+      <Link to="/">
+        <Button className="back-button">Back</Button>
+      </Link>
     </div>
   );
 };
