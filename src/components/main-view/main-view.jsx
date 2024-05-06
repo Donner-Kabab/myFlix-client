@@ -125,6 +125,17 @@ export const MainView = () => {
               </>
             }
           />
+          <Route
+            path="/login"
+            element={
+              <>
+                <Col md={8}>
+                  
+                  <LoginView />
+                </Col>
+              </>
+            }
+          />
         </Routes>
       </Row>
     </BrowserRouter>

@@ -27381,6 +27381,27 @@ const MainView = ()=>{
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 108,
                             columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                            path: "/login",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                    md: 8,
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {}, void 0, false, {
+                                        fileName: "src/components/main-view/main-view.jsx",
+                                        lineNumber: 134,
+                                        columnNumber: 19
+                                    }, void 0)
+                                }, void 0, false, {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 132,
+                                    columnNumber: 17
+                                }, void 0)
+                            }, void 0, false)
+                        }, void 0, false, {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 128,
+                            columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
@@ -30220,142 +30241,56 @@ var _propTypes = require("prop-types");
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _movieCardScss = require("./movie-card.scss");
-var _s = $RefreshSig$();
 const MovieCard = ({ movie })=>{
-    _s();
-    const [addTitle, setAddTitle] = useState("");
-    const [delTitle, setDelTitle] = useState("");
-    useEffect(()=>{
-        const addToFavorites = ()=>{
-            fetch(`https://movies-api-qewk.onrender.com/movies/users/${user.UserName}/movies/${encodeURIComponent(movie.title)}`, {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${storedToken}`,
-                    "Content-Type": "application/json"
-                }
-            }).then((response)=>{
-                if (!response.ok) throw new Error("Can't add movie, try again.");
-                alert("Movie added!");
-                window.location.reload();
-                return response.json();
-            }).then((user1)=>{
-                if (user1) {
-                    localStorage.setItem("user", JSON.stringify(user1));
-                    setUser(user1);
-                }
-            }).catch((error)=>{
-                console.error(error);
-            });
-        };
-        const removeFromFavorites = ()=>{
-            fetch(`https://movies-api-qewk.onrender.com/movies/users/${user.UserName}/movies/${encodeURIComponent(movie.title)}`, {
-                method: "DELETE",
-                headers: {
-                    Authorization: `Bearer ${storedToken}`,
-                    "Content-Type": "application/json"
-                }
-            }).then((response)=>{
-                if (!response.ok) throw new Error("Can't remove movie, try again.");
-                alert("Movie removed!");
-                window.location.reload();
-                return response.json();
-            }).then((user1)=>{
-                if (user1) {
-                    localStorage.setItem("user", JSON.stringify(user1));
-                    setUser(user1);
-                }
-            }).catch((error)=>{
-                console.error(error);
-            });
-        };
-        if (addTitle) addToFavorites();
-        if (deleteTitle) removeFromFavorites();
-    }, [
-        addTitle,
-        deleteTitle,
-        token
-    ]);
-    const handleAddToFavorites = ()=>{
-        setAddTitle(movie.Title);
-    };
-    const handleRemoveFromFavorites = ()=>{
-        setDelTitle(movie.Title);
-    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                className: "link-card",
-                to: `/movies/${encodeURIComponent(movie.id)}`,
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
-                            variant: "top",
-                            src: movie.Image
-                        }, void 0, false, {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 100,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
-                                    children: movie.Title
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 102,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                                    children: movie.Genre.join(", ")
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 103,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 101,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 99,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+            className: "link-card",
+            to: `/movies/${encodeURIComponent(movie.id)}`,
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
+                        variant: "top",
+                        src: movie.Image
+                    }, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 16,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
+                                children: movie.Title
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 18,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                                children: movie.Genre.Name
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 19,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 17,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 95,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                children: isFavorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                    variant: "primary",
-                    onClick: handleRemoveFromFavorites,
-                    children: "Remove from Favorites"
-                }, void 0, false, {
-                    fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 109,
-                    columnNumber: 11
-                }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                    variant: "primary",
-                    onClick: handleAddToFavorites,
-                    children: "Add to Favorites"
-                }, void 0, false, {
-                    fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 113,
-                    columnNumber: 11
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 107,
-                columnNumber: 7
+                lineNumber: 15,
+                columnNumber: 9
             }, undefined)
-        ]
-    }, void 0, true);
+        }, void 0, false, {
+            fileName: "src/components/movie-card/movie-card.jsx",
+            lineNumber: 11,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false);
 };
-_s(MovieCard, "2hiJEcWiWyEuVwTNd1e7d/ZCgTE=");
 _c = MovieCard;
 //define the props
 MovieCard.propTypes = {
@@ -48914,7 +48849,8 @@ const LoginView = ({ onLoggedIn, onShowSignupForm })=>{
             if (data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", data.token);
-                onLoggedIn(data.user, data.token);
+                location.href = "/";
+            //onLoggedIn(data.user, data.token);
             } else alert("No such user");
         }).catch((e)=>{
             alert("Something went wrong");
@@ -48933,7 +48869,7 @@ const LoginView = ({ onLoggedIn, onShowSignupForm })=>{
                                 children: "Username:"
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 44,
+                                lineNumber: 45,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -48943,13 +48879,13 @@ const LoginView = ({ onLoggedIn, onShowSignupForm })=>{
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 45,
+                                lineNumber: 46,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 43,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
@@ -48960,7 +48896,7 @@ const LoginView = ({ onLoggedIn, onShowSignupForm })=>{
                                 children: "Password:"
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 53,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
@@ -48970,13 +48906,13 @@ const LoginView = ({ onLoggedIn, onShowSignupForm })=>{
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 54,
+                                lineNumber: 55,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 52,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -48985,13 +48921,13 @@ const LoginView = ({ onLoggedIn, onShowSignupForm })=>{
                         children: "Submit"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 61,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 42,
+                lineNumber: 43,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -49001,7 +48937,7 @@ const LoginView = ({ onLoggedIn, onShowSignupForm })=>{
                 children: "Don't have an account?"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 65,
+                lineNumber: 66,
                 columnNumber: 7
             }, undefined)
         ]
