@@ -30242,6 +30242,19 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _movieCardScss = require("./movie-card.scss");
 const MovieCard = ({ movie })=>{
+    console.log(movie);
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = localStorage.getItem("token");
+    console.log("https://movies-api-qewk.onrender.com/users/" + user.Username + "/movies/" + movie.id);
+    const addToFavorites = ()=>{
+        fetch("https://movies-api-qewk.onrender.com/users/" + user.Username + "/movies/" + movie.id, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>response.json()).then((data)=>{
+            console.log("date", data);
+        });
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -30250,7 +30263,7 @@ const MovieCard = ({ movie })=>{
                 height: "100"
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 11,
+                lineNumber: 35,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -30263,7 +30276,7 @@ const MovieCard = ({ movie })=>{
                             src: movie.Image
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 17,
+                            lineNumber: 41,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -30272,31 +30285,41 @@ const MovieCard = ({ movie })=>{
                                     children: movie.Title
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 19,
+                                    lineNumber: 43,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
                                     children: movie.Genre.Name
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 20,
+                                    lineNumber: 44,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 18,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 16,
+                    lineNumber: 40,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 12,
+                lineNumber: 36,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                variant: "primary",
+                type: "button",
+                onClick: addToFavorites,
+                children: "Add to Favorites"
+            }, void 0, false, {
+                fileName: "src/components/movie-card/movie-card.jsx",
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined)
         ]
