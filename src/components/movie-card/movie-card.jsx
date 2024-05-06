@@ -8,6 +8,7 @@ import "./movie-card.scss";
 export const MovieCard = ({ movie }) => {
   return (
     <>
+      <img src={movie.ImagePath} width="100" height="100" />
       <Link
         className="link-card"
         to={`/movies/${encodeURIComponent(movie.id)}`}
