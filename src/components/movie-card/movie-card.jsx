@@ -17,14 +17,12 @@ export const MovieCard = ({ movie }) => {
   );
   const addToFavorites = () => {
     fetch(
-      "https://movies-api-qewk.onrender.com/users/" +
-        user.Username +
-        "/movies/" +
-        movie.id,
+      "https://movies-api-qewk.onrender.com/users/:Username/movies/:movieId", {
+      method: "POST",
       {
         headers: { Authorization: `Bearer ${token}` },
       }
-    )
+   });
       .then((response) => response.json())
       .then((data) => {
         console.log("date", data);
