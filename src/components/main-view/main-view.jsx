@@ -130,7 +130,6 @@ export const MainView = () => {
             element={
               <>
                 <Col md={8}>
-                  
                   <LoginView />
                 </Col>
               </>

@@ -7,15 +7,21 @@ import { FavoriteMovies } from "./favorite-movies";
 
 import { Row, Col, Button } from "react-bootstrap";
 
-export const ProfileView = ({ localUser }) => {
+export const ProfileView = ({ localUser, movies }) => {
+  console.log(movies);
   const storedUser = JSON.parse(localStorage.getItem("user"));
-
+  const [favoriteMovies] = useState(
+    movies.filter((movie) => {
+      return storedUser.FavoriteMovies.includes(movie.id);
+    })
+  );
+  console.log(favoriteMovies);
   const [username, setUsername] = useState(localUser.UserName);
   const [email, setEmail] = useState(localUser.Email);
   const [birthday, setBirthday] = useState(localUser.Birthday);
   const [password, setPassword] = useState("");
 
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  //const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const data = {
     Username: username,
@@ -49,5 +55,8 @@ return (
     <h2>User Profile</h2>
     <h3>Login/Signup</h3>
     <h3>Favorite Movies</h3>
+    {favoriteMovies.map((movie) => (
+      <MovieCard movie={movie} />
+    ))}
   </>
 );
