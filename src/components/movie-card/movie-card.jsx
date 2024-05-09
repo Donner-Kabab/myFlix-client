@@ -32,6 +32,25 @@ export const MovieCard = ({ movie }) => {
         console.log("date", data);
       });
   };
+
+  const deleteFromFavorites = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    fetch(
+      `https://movies-api-qewk.onrender.com/users/${user.Username}/movies/${movie.id}`,
+      {
+        method: "Delete",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("date", data);
+      });
+  };
+
   return (
     <>
       <img src={movie.ImagePath} width="100" height="100" />
@@ -49,6 +68,9 @@ export const MovieCard = ({ movie }) => {
       </Link>
       <Button variant="primary" type="button" onClick={addToFavorites}>
         Add to Favorites
+      </Button>
+      <Button variant="primary" type="button" onClick={deleteFromFavorites}>
+        Delete from Favorites
       </Button>
     </>
   );
