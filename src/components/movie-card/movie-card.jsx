@@ -16,13 +16,17 @@ export const MovieCard = ({ movie }) => {
       movie.id
   );
   const addToFavorites = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
     fetch(
-      "https://movies-api-qewk.onrender.com/users/:Username/movies/:movieId", {
-      method: "POST",
+      `https://movies-api-qewk.onrender.com/users/${user.Username}/movies/${movie.id}`,
       {
-        headers: { Authorization: `Bearer ${token}` },
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       }
-   });
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log("date", data);
