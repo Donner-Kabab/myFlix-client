@@ -49163,79 +49163,65 @@ const ProfileView = ({ localUser, movies })=>{
     _s();
     console.log(movies);
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    const [favoriteMovies1] = (0, _react.useState)(movies.filter((movie)=>{
-        return storedUser.FavoriteMovies.includes(movie.id);
-    }));
-    console.log(favoriteMovies1);
+    //const [favoriteMovies, setFavoriteMovies] = useState([]);
     const [username, setUsername] = (0, _react.useState)(localUser.UserName);
     const [email, setEmail] = (0, _react.useState)(localUser.Email);
     const [birthday, setBirthday] = (0, _react.useState)(localUser.Birthday);
     const [password, setPassword] = (0, _react.useState)("");
-    //const [favoriteMovies, setFavoriteMovies] = useState([]);
-    const data = {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthday: birthday
-    };
-    function handleSubmit(event) {
-        event.preventDefault();
-        fetch("https://movies-api-qewk.onrender.com/users", {
-            method: "PUT",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then((response)=>{
-            if (response.ok) {
-                alert("Updtate Completed");
-                window.location.reload();
-            } else alert("Change failed: ${data.error.message}");
-        });
-    }
-};
-_s(ProfileView, "7Set7TUAhDaMtR4vISBe/KEHObs=");
-_c = ProfileView;
-var _c;
-return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-    children: [
-        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-            children: "User Profile"
-        }, void 0, false, {
-            fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 55,
-            columnNumber: 5
-        }, undefined),
-        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-            children: "Login/Signup"
-        }, void 0, false, {
-            fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 56,
-            columnNumber: 5
-        }, undefined),
-        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-            children: "Favorite Movies"
-        }, void 0, false, {
-            fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 57,
-            columnNumber: 5
-        }, undefined),
-        favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                movie: movie
+    const favs = movies.filter((movie)=>{
+        return storedUser.FavoriteMovies.includes(movie.id);
+    });
+    console.log(movies);
+    console.log(favs);
+    /*const data = {
+    Username: username,
+    Password: password,
+    Email: email,
+    Birthday: birthday,
+  };*/ return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "User Profile"
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 59,
-                columnNumber: 7
-            }, undefined))
-    ]
-}, void 0, true);
+                lineNumber: 36,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Login/Signup"
+            }, void 0, false, {
+                fileName: "src/components/profile-view/profile-view.jsx",
+                lineNumber: 37,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Favorite Movies"
+            }, void 0, false, {
+                fileName: "src/components/profile-view/profile-view.jsx",
+                lineNumber: 38,
+                columnNumber: 5
+            }, undefined),
+            favs && favs.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie
+                }, void 0, false, {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 39,
+                    columnNumber: 34
+                }, undefined))
+        ]
+    }, void 0, true);
+};
+_s(ProfileView, "6qbwXHGK9CBaADg9h17PxJSLc4c=");
+_c = ProfileView;
+var _c;
+$RefreshReg$(_c, "ProfileView");
 
   $parcel$ReactRefreshHelpers$3c12.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../navigation-bar/navigation-bar":"bsPVM","../main-view/main-view":"4gflv","../movie-card/movie-card":"bwuIu","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6","./update-user":"2SBwg","./favorite-movies":"dTTQH"}],"2SBwg":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../navigation-bar/navigation-bar":"bsPVM","../main-view/main-view":"4gflv","../movie-card/movie-card":"bwuIu","./update-user":"2SBwg","./favorite-movies":"dTTQH","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"7SIbG","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"jGfq6"}],"2SBwg":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$95d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

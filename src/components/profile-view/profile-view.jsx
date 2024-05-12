@@ -10,53 +10,32 @@ import { Row, Col, Button } from "react-bootstrap";
 export const ProfileView = ({ localUser, movies }) => {
   console.log(movies);
   const storedUser = JSON.parse(localStorage.getItem("user"));
-  const [favoriteMovies] = useState(
-    movies.filter((movie) => {
-      return storedUser.FavoriteMovies.includes(movie.id);
-    })
-  );
-  console.log(favoriteMovies);
+  //const [favoriteMovies, setFavoriteMovies] = useState([]);
+
+  
   const [username, setUsername] = useState(localUser.UserName);
   const [email, setEmail] = useState(localUser.Email);
   const [birthday, setBirthday] = useState(localUser.Birthday);
   const [password, setPassword] = useState("");
-
-  //const [favoriteMovies, setFavoriteMovies] = useState([]);
-
-  const data = {
+const favs = movies.filter((movie) => {
+  return storedUser.FavoriteMovies.includes(movie.id);
+});
+console.log(movies);
+  console.log(favs);
+  /*const data = {
     Username: username,
     Password: password,
     Email: email,
     Birthday: birthday,
-  };
+  };*/
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    fetch("https://movies-api-qewk.onrender.com/users", {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((response) => {
-      if (response.ok) {
-        alert("Updtate Completed");
-        window.location.reload();
-      } else {
-        alert("Change failed: ${data.error.message}");
-      }
-    });
-  }
-};
+  
 
 return (
   <>
     <h2>User Profile</h2>
     <h3>Login/Signup</h3>
     <h3>Favorite Movies</h3>
-    {favoriteMovies.map((movie) => (
-      <MovieCard movie={movie} />
-    ))}
+    {favs && favs.map((movie) => <MovieCard movie={movie} />)}
   </>
 );
