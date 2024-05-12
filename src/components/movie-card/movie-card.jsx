@@ -5,18 +5,10 @@ import { Link } from "react-router-dom";
 
 import "./movie-card.scss";
 
-export const MovieCard = ({ movie }) => {
-  console.log(movie);
-  const user = JSON.parse(localStorage.getItem("user"));
+export const MovieCard = ({ movie, user, setUser }) => {
   const token = localStorage.getItem("token");
-  console.log(
-    "https://movies-api-qewk.onrender.com/users/" +
-      user.Username +
-      "/movies/" +
-      movie.id
-  );
+
   const addToFavorites = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
     fetch(
       `https://movies-api-qewk.onrender.com/users/${user.Username}/movies/${movie.id}`,
       {
@@ -30,11 +22,13 @@ export const MovieCard = ({ movie }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log("date", data);
+        alert("movie added.");
+        localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
       });
   };
 
   const deleteFromFavorites = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
     fetch(
       `https://movies-api-qewk.onrender.com/users/${user.Username}/movies/${movie.id}`,
       {
@@ -48,6 +42,9 @@ export const MovieCard = ({ movie }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log("date", data);
+        alert("movie deleted.");
+        localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
       });
   };
 
@@ -66,12 +63,16 @@ export const MovieCard = ({ movie }) => {
           </Card.Body>
         </Card>
       </Link>
-      <Button variant="primary" type="button" onClick={addToFavorites}>
-        Add to Favorites
-      </Button>
-      <Button variant="primary" type="button" onClick={deleteFromFavorites}>
-        Delete from Favorites
-      </Button>
+
+      {!user?.FavoriteMovies?.includes(movie.id) ? (
+        <Button variant="primary" type="button" onClick={addToFavorites}>
+          Add to Favorites
+        </Button>
+      ) : (
+        <Button variant="danger" type="button" onClick={deleteFromFavorites}>
+          Delete from Favorites
+        </Button>
+      )}
     </>
   );
 };
