@@ -83,6 +83,7 @@ export const MainView = () => {
                       localUser={user}
                       movies={movies}
                       token={token}
+                      setUser={setUser}
                     />
                   </Col>
                 )}

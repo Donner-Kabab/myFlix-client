@@ -9,7 +9,7 @@ import { FavoriteMovies } from "./favorite-movies";
 
 import { Row, Col, Button, Form } from "react-bootstrap";
 
-export const ProfileView = ({ localUser, movies }) => {
+export const ProfileView = ({ localUser, movies, setUser }) => {
   console.log(movies);
   const storedUser = JSON.parse(localStorage.getItem("user"));
   //const [favoriteMovies, setFavoriteMovies] = useState([]);
@@ -46,12 +46,16 @@ export const ProfileView = ({ localUser, movies }) => {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorizaton: "Bearer " + localStorage.getItem("token"),
+        Authorization: "Bearer " + localStorage.getItem("token"),
       },
     }).then((response) => {
       if (response.ok) {
         alert("Update successful");
-        window.location.reload();
+        response.json().then((data) => {
+          localStorage.setItem("user", JSON.stringify(data));
+          setUser(data);
+        });
+        // window.location.reload();
       } else {
         alert(JSON.stringify(response));
       }
@@ -108,7 +112,7 @@ export const ProfileView = ({ localUser, movies }) => {
         </Button>
       </Form>
       <h3>Favorite Movies</h3>
-      {favs && favs.map((movie) => <MovieCard movie={movie} />)}
+      {favs && favs.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
     </>
   );
 };
