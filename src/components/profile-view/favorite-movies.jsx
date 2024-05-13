@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { Row, Col, Button } from "react-bootstrap";
 
-export const FavouriteMovies = () => {
+export const FavoriteMovies = () => {
   return (
     <Row>
       <Col md={12}>
