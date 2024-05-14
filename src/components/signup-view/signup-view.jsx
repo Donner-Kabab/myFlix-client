@@ -44,7 +44,7 @@ export const SignupView = ({ onShowLoginForm }) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            />
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPassword">
@@ -54,7 +54,7 @@ export const SignupView = ({ onShowLoginForm }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            />
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formEmail">
@@ -64,7 +64,7 @@ export const SignupView = ({ onShowLoginForm }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            />
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBirthday">
@@ -74,14 +74,20 @@ export const SignupView = ({ onShowLoginForm }) => {
             value={birthday}
             onChange={(e) => setBirthday(e.target.value)}
             required
-            />
+          />
         </Form.Group>
 
         <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
-      <Button className="p-0 align-self-end" variant="link" onClick={onShowLoginForm}>Already have an account?</Button>
+      <Button
+        className="p-0 align-self-end"
+        variant="link"
+        onClick={onShowLoginForm}
+      >
+        Already have an account?
+      </Button>
     </>
   );
 };

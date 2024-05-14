@@ -27,7 +27,8 @@ export const LoginView = ({ onLoggedIn, onShowSignupForm }) => {
         if (data.user) {
           localStorage.setItem("user", JSON.stringify(data.user));
           localStorage.setItem("token", data.token);
-          onLoggedIn(data.user, data.token);
+          location.href = "/";
+          //onLoggedIn(data.user, data.token);
         } else {
           alert("No such user");
         }
@@ -47,7 +48,7 @@ export const LoginView = ({ onLoggedIn, onShowSignupForm }) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            />
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPassword">
           <Form.Label>Password:</Form.Label>
@@ -56,13 +57,19 @@ export const LoginView = ({ onLoggedIn, onShowSignupForm }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            />
+          />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
-      <Button className="p-0 align-self-end" variant="link" onClick={onShowSignupForm}>Don't have an account?</Button>
+      <Button
+        className="p-0 align-self-end"
+        variant="link"
+        onClick={onShowSignupForm}
+      >
+        Don't have an account?
+      </Button>
     </>
   );
 };
