@@ -7,6 +7,7 @@ import "./movie-card.scss";
 
 export const MovieCard = ({ movie, user, setUser }) => {
   const token = localStorage.getItem("token");
+  console.log(setUser);
 
   const addToFavorites = () => {
     fetch(

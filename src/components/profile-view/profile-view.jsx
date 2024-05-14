@@ -23,12 +23,7 @@ export const ProfileView = ({ localUser, movies, setUser }) => {
   });
   console.log(movies);
   console.log(favs);
-  /*const data = {
-    Username: username,
-    Password: password,
-    Email: email,
-    Birthday: birthday,
-  };*/
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -55,7 +50,7 @@ export const ProfileView = ({ localUser, movies, setUser }) => {
           localStorage.setItem("user", JSON.stringify(data));
           setUser(data);
         });
-        // window.location.reload();
+      
       } else {
         alert(JSON.stringify(response));
       }
@@ -112,7 +107,15 @@ export const ProfileView = ({ localUser, movies, setUser }) => {
         </Button>
       </Form>
       <h3>Favorite Movies</h3>
-      {favs && favs.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+      {favs &&
+        favs.map((movie) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            user={localUser}
+            setUser={setUser}
+          />
+        ))}
     </>
   );
 };
